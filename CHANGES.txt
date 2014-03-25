@@ -1,0 +1,12 @@
+
+
+CHANGES in 1.7.2 (relative to JClouds 1.7.2-SNAPSHOT)
+
+* Initial Import from JClouds 1.7.x @ 283937fad099e0ed528ed90485373e99813ccfcf
+* This is the basis for the Dyn SDK for Java
+* Initially we're starting with the Traffic API
+* Move package org.jclouds.dynect.v3 -> com.dyn.client.v3.traffic
+* Rename classes from DynECT* to DynTraffic*
+* Deprecate Geo* service (use GSLB* instead)
+* Add placeholders for GSLB and GSLBRegion services
+

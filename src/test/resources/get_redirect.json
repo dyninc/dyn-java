@@ -1,0 +1,1 @@
+{"status": "success", "data": {"url": "http://foo.com/", "code": "301", "keep_uri": "Y", "fqdn": "redirect.adriancole.zone.dynecttest.jclouds.org", "zone": "redirect.adriancole.zone.dynecttest.jclouds.org"}, "job_id": 387933228, "msgs": [{"INFO": "get: Here are your services", "SOURCE": "BLL", "ERR_CD": null, "LVL": "INFO"}]}
