@@ -40,7 +40,7 @@ import com.google.inject.Module;
  */
 public class BaseDynTrafficExpectTest<T> extends BaseRestApiExpectTest<T> {
    public BaseDynTrafficExpectTest() {
-      provider = "dynect";
+      provider = "dyn";
       identity = "jclouds:joe";
       credential = "letmein";
    }

@@ -54,7 +54,7 @@ public class DynTrafficApiMetadata extends BaseHttpApiMetadata<DynTrafficApi> {
    public static class Builder extends BaseHttpApiMetadata.Builder<DynTrafficApi, Builder> {
 
       protected Builder() {
-          id("dynect")
+          id("dyn")
          .name("DynECT API2")
          .identityName("${customer}:${userName}")
          .credentialName("${password}")

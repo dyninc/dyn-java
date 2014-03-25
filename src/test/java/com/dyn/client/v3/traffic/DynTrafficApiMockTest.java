@@ -48,7 +48,7 @@ public class DynTrafficApiMockTest {
    static DynTrafficApi mockDynectApi(String uri) {
       Properties overrides = new Properties();
       overrides.setProperty(PROPERTY_MAX_RETRIES, "1");
-      return ContextBuilder.newBuilder("dynect")
+      return ContextBuilder.newBuilder("dyn")
                            .credentials("jclouds:joe", "letmein")
                            .endpoint(uri)
                            .overrides(overrides)

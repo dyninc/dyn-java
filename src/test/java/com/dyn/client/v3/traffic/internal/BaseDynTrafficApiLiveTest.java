@@ -24,6 +24,6 @@ import com.dyn.client.v3.traffic.DynTrafficApi;
 @Test(groups = "live")
 public class BaseDynTrafficApiLiveTest extends BaseApiLiveTest<DynTrafficApi> {
    public BaseDynTrafficApiLiveTest() {
-      provider = "dynect";
+      provider = "dyn";
    }
 }
