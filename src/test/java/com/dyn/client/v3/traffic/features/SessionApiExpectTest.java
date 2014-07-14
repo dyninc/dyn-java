@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 package com.dyn.client.v3.traffic.features;
-import static com.dyn.client.v3.traffic.DynTrafficApi.DYN_TRAFFIC_USER_AGENT;
+import static com.dyn.client.common.DynClientVersion.VERSION;
 import static com.google.common.net.HttpHeaders.CONTENT_TYPE;
 import static com.google.common.net.HttpHeaders.USER_AGENT;
 import static javax.ws.rs.HttpMethod.DELETE;
@@ -52,7 +52,7 @@ public class SessionApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest isValid = HttpRequest.builder().method(GET)
                                     .endpoint("https://api2.dynect.net/REST/Session")
                                     .addHeader("API-Version", "3.3.8")
-                                    .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+                                    .addHeader(USER_AGENT, VERSION)
                                     .addHeader(CONTENT_TYPE, APPLICATION_JSON)
                                     .addHeader("Auth-Token", authToken).build();
 
@@ -75,7 +75,7 @@ public class SessionApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest logout = HttpRequest.builder().method(DELETE)
                                    .endpoint("https://api2.dynect.net/REST/Session")
                                    .addHeader("API-Version", "3.3.8")
-                                   .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+                                   .addHeader(USER_AGENT, VERSION)
                                    .addHeader(CONTENT_TYPE, APPLICATION_JSON)
                                    .addHeader("Auth-Token", authToken).build();
 

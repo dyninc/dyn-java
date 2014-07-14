@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 package com.dyn.client.v3.traffic.internal;
-import static com.dyn.client.v3.traffic.DynTrafficApi.DYN_TRAFFIC_USER_AGENT;
+import static com.dyn.client.common.DynClientVersion.VERSION;
 import static com.google.common.net.HttpHeaders.USER_AGENT;
 import static javax.ws.rs.HttpMethod.POST;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
@@ -40,7 +40,7 @@ import com.google.inject.Module;
  */
 public class BaseDynTrafficExpectTest<T> extends BaseRestApiExpectTest<T> {
    public BaseDynTrafficExpectTest() {
-      provider = "dyn";
+      provider = "dyn-traffic";
       identity = "jclouds:joe";
       credential = "letmein";
    }
@@ -76,7 +76,7 @@ public class BaseDynTrafficExpectTest<T> extends BaseRestApiExpectTest<T> {
          .method(POST)
          .endpoint("https://api2.dynect.net/REST/Session")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .payload(
                payloadFromStringWithContentType(
                      "{\"customer_name\":\"jclouds\",\"user_name\":\"joe\",\"password\":\"letmein\"}", APPLICATION_JSON))

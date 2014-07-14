@@ -22,11 +22,11 @@
   <parent>
     <groupId>org.apache.jclouds</groupId>
     <artifactId>jclouds-project</artifactId>
-    <version>1.7.2-SNAPSHOT</version>
+    <version>1.7.2</version>
   </parent>
   <groupId>com.dyn</groupId>
   <artifactId>dyn-client</artifactId>
-  <version>1.7.2-SNAPSHOT</version>
+  <version>1.7.2</version>
   <name>Dyn SDK for Java</name>
   <description>Dyn SDK based on jclouds components</description>
   <packaging>jar</packaging>

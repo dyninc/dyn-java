@@ -14,16 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.dyn.client.v3.traffic.internal;
+package com.dyn.client.common;
 
-import org.jclouds.apis.BaseApiLiveTest;
-import org.testng.annotations.Test;
-
-import com.dyn.client.v3.traffic.DynTrafficApi;
-
-@Test(groups = "live")
-public class BaseDynTrafficApiLiveTest extends BaseApiLiveTest<DynTrafficApi> {
-   public BaseDynTrafficApiLiveTest() {
-      provider = "dyn-traffic";
-   }
+/**
+ * SDK Client Version to report in User-Agent
+ */
+public interface DynClientVersion {
+	String VERSION = "dyn-java v1.7.2";
 }

@@ -16,7 +16,7 @@
  */
 package com.dyn.client.v3.traffic.features;
 
-import static com.dyn.client.v3.traffic.DynTrafficApi.DYN_TRAFFIC_USER_AGENT;
+import static com.dyn.client.common.DynClientVersion.VERSION;
 import static com.google.common.net.HttpHeaders.CONTENT_TYPE;
 import static com.google.common.net.HttpHeaders.USER_AGENT;
 import static javax.ws.rs.HttpMethod.GET;
@@ -40,7 +40,7 @@ import com.dyn.client.v3.traffic.parse.ListGeoServicesResponseTest;
 public class GeoServiceApiExpectTest extends BaseDynTrafficApiExpectTest {
 
    HttpRequest list = HttpRequest.builder().method(GET).endpoint("https://api2.dynect.net/REST/Geo")
-         .addHeader("API-Version", "3.3.8").addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT).addHeader(CONTENT_TYPE, APPLICATION_JSON)
+         .addHeader("API-Version", "3.3.8").addHeader(USER_AGENT, VERSION).addHeader(CONTENT_TYPE, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken).build();
 
    HttpResponse listResponse = HttpResponse.builder().statusCode(OK.getStatusCode())
@@ -53,7 +53,7 @@ public class GeoServiceApiExpectTest extends BaseDynTrafficApiExpectTest {
    }
 
    HttpRequest get = HttpRequest.builder().method(GET).endpoint("https://api2.dynect.net/REST/Geo/srv")
-         .addHeader("API-Version", "3.3.8").addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT).addHeader(CONTENT_TYPE, APPLICATION_JSON)
+         .addHeader("API-Version", "3.3.8").addHeader(USER_AGENT, VERSION).addHeader(CONTENT_TYPE, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken).build();
 
    HttpResponse getResponse = HttpResponse.builder().statusCode(OK.getStatusCode())

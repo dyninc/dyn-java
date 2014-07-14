@@ -42,14 +42,14 @@ import org.jclouds.rest.annotations.SelectJson;
 import org.jclouds.rest.annotations.Transform;
 import org.jclouds.rest.binders.BindToJsonPayload;
 
+import com.dyn.client.common.AlwaysAddContentType;
+import com.dyn.client.common.AlwaysAddUserAgent;
 import com.dyn.client.v3.traffic.DynTrafficExceptions.JobStillRunningException;
 import com.dyn.client.v3.traffic.DynTrafficExceptions.TargetExistsException;
 import com.dyn.client.v3.traffic.domain.CreatePrimaryZone;
 import com.dyn.client.v3.traffic.domain.Job;
 import com.dyn.client.v3.traffic.domain.Zone;
 import com.dyn.client.v3.traffic.domain.CreatePrimaryZone.ToFQDN;
-import com.dyn.client.v3.traffic.filters.AlwaysAddContentType;
-import com.dyn.client.v3.traffic.filters.AlwaysAddUserAgent;
 import com.dyn.client.v3.traffic.filters.SessionManager;
 import com.dyn.client.v3.traffic.functions.ExtractLastPathComponent;
 import com.google.common.collect.FluentIterable;

@@ -14,16 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.dyn.client.v3.traffic.internal;
+package com.dyn.client.v3.messaging.features;
 
-import org.jclouds.apis.BaseApiLiveTest;
-import org.testng.annotations.Test;
+import java.util.List;
+import java.util.Map;
 
-import com.dyn.client.v3.traffic.DynTrafficApi;
+import javax.ws.rs.QueryParam;
 
-@Test(groups = "live")
-public class BaseDynTrafficApiLiveTest extends BaseApiLiveTest<DynTrafficApi> {
-   public BaseDynTrafficApiLiveTest() {
-      provider = "dyn-traffic";
-   }
+/**
+ * Generic Report interface, plus unique counts and list
+ */
+public interface UniqueReportApi extends ReportApi {
+	Long countUnique(@QueryParam("starttime") String startTime,
+			@QueryParam("endtime") String endTime);
+
+	List<Map<String, Object>> listUnique(
+			@QueryParam("starttime") String startTime,
+			@QueryParam("endtime") String endTime,
+			@QueryParam("startindex") int startIndex);
 }

@@ -39,6 +39,8 @@ import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.ResponseParser;
 import org.jclouds.rest.annotations.SelectJson;
 
+import com.dyn.client.common.AlwaysAddContentType;
+import com.dyn.client.common.AlwaysAddUserAgent;
 import com.dyn.client.v3.traffic.DynTrafficExceptions.JobStillRunningException;
 import com.dyn.client.v3.traffic.binders.CreateRecordBinder;
 import com.dyn.client.v3.traffic.binders.RecordIdBinder;
@@ -57,8 +59,6 @@ import com.dyn.client.v3.traffic.domain.rdata.SPFData;
 import com.dyn.client.v3.traffic.domain.rdata.SRVData;
 import com.dyn.client.v3.traffic.domain.rdata.SSHFPData;
 import com.dyn.client.v3.traffic.domain.rdata.TXTData;
-import com.dyn.client.v3.traffic.filters.AlwaysAddContentType;
-import com.dyn.client.v3.traffic.filters.AlwaysAddUserAgent;
 import com.dyn.client.v3.traffic.filters.SessionManager;
 import com.dyn.client.v3.traffic.functions.ToRecordIds;
 import com.google.common.collect.FluentIterable;

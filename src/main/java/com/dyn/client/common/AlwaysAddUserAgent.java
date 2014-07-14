@@ -14,16 +14,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.dyn.client.v3.traffic.internal;
+package com.dyn.client.common;
 
-import org.jclouds.apis.BaseApiLiveTest;
-import org.testng.annotations.Test;
+import static com.google.common.net.HttpHeaders.USER_AGENT;
 
-import com.dyn.client.v3.traffic.DynTrafficApi;
+import org.jclouds.http.HttpException;
+import org.jclouds.http.HttpRequest;
+import org.jclouds.http.HttpRequestFilter;
 
-@Test(groups = "live")
-public class BaseDynTrafficApiLiveTest extends BaseApiLiveTest<DynTrafficApi> {
-   public BaseDynTrafficApiLiveTest() {
-      provider = "dyn-traffic";
+/**
+ * 
+ * DynECT requires Content-Type even on GET requests.
+ * 
+ * @author Adrian Cole
+ */
+public final class AlwaysAddUserAgent implements HttpRequestFilter {
+   @Override
+   public HttpRequest filter(HttpRequest request) throws HttpException {
+      if (request.getFirstHeaderOrNull(USER_AGENT) == null)
+         return request.toBuilder().replaceHeader(USER_AGENT, DynClientVersion.VERSION).build();
+
+      return request;
    }
 }

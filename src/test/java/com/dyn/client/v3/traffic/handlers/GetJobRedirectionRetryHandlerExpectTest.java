@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 package com.dyn.client.v3.traffic.handlers;
-import static com.dyn.client.v3.traffic.DynTrafficApi.DYN_TRAFFIC_USER_AGENT;
+import static com.dyn.client.common.DynClientVersion.VERSION;
 import static com.google.common.net.HttpHeaders.ACCEPT;
 import static com.google.common.net.HttpHeaders.CONTENT_TYPE;
 import static com.google.common.net.HttpHeaders.LOCATION;
@@ -44,7 +44,7 @@ public class GetJobRedirectionRetryHandlerExpectTest extends BaseDynTrafficApiEx
       HttpRequest thaw = HttpRequest.builder().method(PUT)
                                     .endpoint("https://api2.dynect.net/REST/Zone/jclouds.org")
                                     .addHeader("API-Version", "3.3.8")
-                                    .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+                                    .addHeader(USER_AGENT, VERSION)
                                     .addHeader(ACCEPT, APPLICATION_JSON)
                                     .addHeader("Auth-Token", authToken)
                                     .payload(stringPayload("{\"thaw\":true}"))
@@ -58,7 +58,7 @@ public class GetJobRedirectionRetryHandlerExpectTest extends BaseDynTrafficApiEx
       HttpRequest job = HttpRequest.builder().method(GET)
                                    .endpoint("https://api2.dynect.net/REST/Job/1234")
                                    .addHeader("API-Version", "3.3.8")
-                                   .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+                                   .addHeader(USER_AGENT, VERSION)
                                    .addHeader(ACCEPT, APPLICATION_JSON)
                                    .addHeader(CONTENT_TYPE, APPLICATION_JSON)
                                    .addHeader("Auth-Token", authToken).build();

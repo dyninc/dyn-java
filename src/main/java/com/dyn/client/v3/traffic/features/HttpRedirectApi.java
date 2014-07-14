@@ -30,12 +30,12 @@ import javax.ws.rs.Produces;
 
 import org.jclouds.Fallbacks.NullOnNotFoundOr404;
 
+import com.dyn.client.common.AlwaysAddContentType;
+import com.dyn.client.common.AlwaysAddUserAgent;
 import com.dyn.client.v3.traffic.DynTrafficExceptions.JobStillRunningException;
 import com.dyn.client.v3.traffic.binders.CreateHttpRedirectBinder;
 import com.dyn.client.v3.traffic.domain.Job;
 import com.dyn.client.v3.traffic.domain.redirect.HttpRedirect;
-import com.dyn.client.v3.traffic.filters.AlwaysAddContentType;
-import com.dyn.client.v3.traffic.filters.AlwaysAddUserAgent;
 import com.dyn.client.v3.traffic.filters.SessionManager;
 import com.dyn.client.v3.traffic.functions.ExtractLastPathComponent;
 

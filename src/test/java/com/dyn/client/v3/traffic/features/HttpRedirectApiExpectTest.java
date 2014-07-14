@@ -16,7 +16,7 @@
  */
 package com.dyn.client.v3.traffic.features;
 
-import static com.dyn.client.v3.traffic.DynTrafficApi.DYN_TRAFFIC_USER_AGENT;
+import static com.dyn.client.common.DynClientVersion.VERSION;
 import static com.google.common.net.HttpHeaders.ACCEPT;
 import static com.google.common.net.HttpHeaders.CONTENT_TYPE;
 import static com.google.common.net.HttpHeaders.USER_AGENT;
@@ -27,14 +27,14 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.testng.Assert.assertEquals;
 
+import org.jclouds.http.HttpRequest;
+import org.jclouds.http.HttpResponse;
+import org.testng.annotations.Test;
+
 import com.dyn.client.v3.traffic.DynTrafficApi;
 import com.dyn.client.v3.traffic.domain.Job;
 import com.dyn.client.v3.traffic.domain.redirect.HttpRedirect;
 import com.dyn.client.v3.traffic.internal.BaseDynTrafficApiExpectTest;
-
-import org.jclouds.http.HttpRequest;
-import org.jclouds.http.HttpResponse;
-import org.testng.annotations.Test;
 
 /**
  * @author Adrian Cole
@@ -45,7 +45,7 @@ public class HttpRedirectApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest get = HttpRequest.builder().method(GET)
                                 .endpoint("https://api2.dynect.net/REST/HTTPRedirect/redirect.adriancole.zone.dynecttest.jclouds.org/redirect.adriancole.zone.dynecttest.jclouds.org/")
                                 .addHeader("API-Version", "3.3.8")
-                                .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+                                .addHeader(USER_AGENT, VERSION)
                                 .addHeader(CONTENT_TYPE, APPLICATION_JSON)
                                 .addHeader("Auth-Token", authToken).build();
 
@@ -61,7 +61,7 @@ public class HttpRedirectApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest create = HttpRequest.builder().method(POST)
          .endpoint("https://api2.dynect.net/REST/HTTPRedirect/redirect.adriancole.zone.dynecttest.jclouds.org/redirect.adriancole.zone.dynecttest.jclouds.org/")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .addHeader(ACCEPT, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken)
          .payload(stringPayload("{\"code\":301,\"keep_uri\":\"Y\",\"url\":\"http://foo.com/\"}"))
@@ -80,7 +80,7 @@ public class HttpRedirectApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest list = HttpRequest.builder().method(GET)
                                  .endpoint("https://api2.dynect.net/REST/HTTPRedirect/redirect.adriancole.zone.dynecttest.jclouds.org/")
                                  .addHeader("API-Version", "3.3.8")
-                                 .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+                                 .addHeader(USER_AGENT, VERSION)
                                  .addHeader(CONTENT_TYPE, APPLICATION_JSON)
                                  .addHeader("Auth-Token", authToken).build();  
 
@@ -96,7 +96,7 @@ public class HttpRedirectApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest delete = HttpRequest.builder().method(DELETE)
                                    .endpoint("https://api2.dynect.net/REST/HTTPRedirect/redirect.adriancole.zone.dynecttest.jclouds.org/redirect.adriancole.zone.dynecttest.jclouds.org/")
                                    .addHeader("API-Version", "3.3.8")
-                                   .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+                                   .addHeader(USER_AGENT, VERSION)
                                    .addHeader(ACCEPT, APPLICATION_JSON)
                                    .addHeader(CONTENT_TYPE, APPLICATION_JSON)
                                    .addHeader("Auth-Token", authToken).build();

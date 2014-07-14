@@ -29,10 +29,10 @@ import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.SelectJson;
 import org.jclouds.rest.annotations.Transform;
 
+import com.dyn.client.common.AlwaysAddContentType;
+import com.dyn.client.common.AlwaysAddUserAgent;
 import com.dyn.client.v3.traffic.DynTrafficExceptions.JobStillRunningException;
 import com.dyn.client.v3.traffic.domain.GeoRegionGroup;
-import com.dyn.client.v3.traffic.filters.AlwaysAddContentType;
-import com.dyn.client.v3.traffic.filters.AlwaysAddUserAgent;
 import com.dyn.client.v3.traffic.filters.SessionManager;
 import com.dyn.client.v3.traffic.functions.ExtractLastPathComponent;
 import com.google.common.collect.FluentIterable;

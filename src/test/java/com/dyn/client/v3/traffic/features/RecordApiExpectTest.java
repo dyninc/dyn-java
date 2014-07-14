@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 package com.dyn.client.v3.traffic.features;
-import static com.dyn.client.v3.traffic.DynTrafficApi.DYN_TRAFFIC_USER_AGENT;
+import static com.dyn.client.common.DynClientVersion.VERSION;
 import static com.dyn.client.v3.traffic.domain.RecordId.recordIdBuilder;
 import static com.dyn.client.v3.traffic.domain.rdata.AData.a;
 import static com.google.common.net.HttpHeaders.ACCEPT;
@@ -62,7 +62,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest getSOA = HttpRequest.builder().method(GET)
                                    .endpoint("https://api2.dynect.net/REST/SOARecord/jclouds.org/jclouds.org/50976579")
                                    .addHeader("API-Version", "3.3.8")
-                                   .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+                                   .addHeader(USER_AGENT, VERSION)
                                    .addHeader(CONTENT_TYPE, APPLICATION_JSON)
                                    .addHeader("Auth-Token", authToken).build();   
 
@@ -89,7 +89,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest getAAAA = HttpRequest.builder().method(GET)
          .endpoint("https://api2.dynect.net/REST/AAAARecord/jclouds.org/jclouds.org/50976579")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .addHeader(CONTENT_TYPE, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken).build();
    
@@ -116,7 +116,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest getA = HttpRequest.builder().method(GET)
          .endpoint("https://api2.dynect.net/REST/ARecord/jclouds.org/jclouds.org/50976579")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .addHeader(CONTENT_TYPE, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken).build();   
    
@@ -143,7 +143,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest getCNAME = HttpRequest.builder().method(GET)
          .endpoint("https://api2.dynect.net/REST/CNAMERecord/jclouds.org/jclouds.org/50976579")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .addHeader(CONTENT_TYPE, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken).build();   
    
@@ -170,7 +170,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest getMX = HttpRequest.builder().method(GET)
          .endpoint("https://api2.dynect.net/REST/MXRecord/jclouds.org/jclouds.org/50976579")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .addHeader(CONTENT_TYPE, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken).build();   
    
@@ -197,7 +197,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest getNS = HttpRequest.builder().method(GET)
          .endpoint("https://api2.dynect.net/REST/NSRecord/jclouds.org/jclouds.org/50976579")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .addHeader(CONTENT_TYPE, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken).build();   
    
@@ -224,7 +224,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest getPTR = HttpRequest.builder().method(GET)
          .endpoint("https://api2.dynect.net/REST/PTRRecord/jclouds.org/jclouds.org/50976579")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .addHeader(CONTENT_TYPE, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken).build();   
    
@@ -262,7 +262,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest getSPF = HttpRequest.builder().method(GET)
          .endpoint("https://api2.dynect.net/REST/SPFRecord/jclouds.org/jclouds.org/50976579")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .addHeader(CONTENT_TYPE, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken).build();   
    
@@ -284,7 +284,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest getSRV = HttpRequest.builder().method(GET)
          .endpoint("https://api2.dynect.net/REST/SRVRecord/jclouds.org/jclouds.org/50976579")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .addHeader(CONTENT_TYPE, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken).build();   
    
@@ -306,7 +306,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest getSSHFP = HttpRequest.builder().method(GET)
          .endpoint("https://api2.dynect.net/REST/SSHFPRecord/jclouds.org/jclouds.org/50976579")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .addHeader(CONTENT_TYPE, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken).build();   
    
@@ -328,7 +328,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest getTXT = HttpRequest.builder().method(GET)
          .endpoint("https://api2.dynect.net/REST/TXTRecord/jclouds.org/jclouds.org/50976579")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .addHeader(CONTENT_TYPE, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken).build();   
    
@@ -355,7 +355,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest list = HttpRequest.builder().method(GET)
                                  .endpoint("https://api2.dynect.net/REST/AllRecord/jclouds.org")
                                  .addHeader("API-Version", "3.3.8")
-                                 .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+                                 .addHeader(USER_AGENT, VERSION)
                                  .addHeader(CONTENT_TYPE, APPLICATION_JSON)
                                  .addHeader("Auth-Token", authToken).build();   
 
@@ -371,7 +371,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest listByFQDN = HttpRequest.builder().method(GET)
          .endpoint("https://api2.dynect.net/REST/AllRecord/jclouds.org/www.foo.com")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .addHeader(CONTENT_TYPE, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken).build();   
 
@@ -389,7 +389,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest listByFQDNAndType = HttpRequest.builder().method(GET)
                                               .endpoint("https://api2.dynect.net/REST/ARecord/jclouds.org/www.foo.com")
                                               .addHeader("API-Version", "3.3.8")
-                                              .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+                                              .addHeader(USER_AGENT, VERSION)
                                               .addHeader(CONTENT_TYPE, APPLICATION_JSON)
                                               .addHeader("Auth-Token", authToken).build();   
 
@@ -407,7 +407,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest create = HttpRequest.builder().method(POST)
          .endpoint("https://api2.dynect.net/REST/ARecord/jclouds.org/www.jclouds.org")
          .addHeader("API-Version", "3.3.8")
-         .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+         .addHeader(USER_AGENT, VERSION)
          .addHeader(ACCEPT, APPLICATION_JSON)
          .addHeader("Auth-Token", authToken)
          .payload(stringPayload("{\"rdata\":{\"address\":\"1.1.1.1\"},\"ttl\":86400}"))
@@ -430,7 +430,7 @@ public class RecordApiExpectTest extends BaseDynTrafficApiExpectTest {
    HttpRequest delete = HttpRequest.builder().method(DELETE)
                                              .endpoint("https://api2.dynect.net/REST/ARecord/jclouds.org/www.jclouds.org/285372440")
                                              .addHeader("API-Version", "3.3.8")
-                                             .addHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT)
+                                             .addHeader(USER_AGENT, VERSION)
                                              .addHeader(ACCEPT, APPLICATION_JSON)
                                              .addHeader(CONTENT_TYPE, APPLICATION_JSON)
                                              .addHeader("Auth-Token", authToken).build();  

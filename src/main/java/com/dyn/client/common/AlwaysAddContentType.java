@@ -14,16 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.dyn.client.v3.traffic.internal;
+package com.dyn.client.common;
 
-import org.jclouds.apis.BaseApiLiveTest;
-import org.testng.annotations.Test;
+import static com.google.common.net.HttpHeaders.CONTENT_TYPE;
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
+import static org.jclouds.http.HttpRequest.NON_PAYLOAD_METHODS;
 
-import com.dyn.client.v3.traffic.DynTrafficApi;
+import org.jclouds.http.HttpException;
+import org.jclouds.http.HttpRequest;
+import org.jclouds.http.HttpRequestFilter;
 
-@Test(groups = "live")
-public class BaseDynTrafficApiLiveTest extends BaseApiLiveTest<DynTrafficApi> {
-   public BaseDynTrafficApiLiveTest() {
-      provider = "dyn-traffic";
+/**
+ * 
+ * DynECT requires Content-Type even on GET requests.
+ * 
+ * @author Adrian Cole
+ */
+public final class AlwaysAddContentType implements HttpRequestFilter {
+   @Override
+   public HttpRequest filter(HttpRequest request) throws HttpException {
+      if (NON_PAYLOAD_METHODS.contains(request.getMethod()))
+         return request.toBuilder().replaceHeader(CONTENT_TYPE, APPLICATION_JSON).build();
+      return request;
    }
 }

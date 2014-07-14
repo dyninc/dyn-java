@@ -59,7 +59,7 @@ public class DynTrafficProviderMetadata extends BaseProviderMetadata {
    public static class Builder extends BaseProviderMetadata.Builder {
 
       protected Builder() {
-         id("dyn")
+         id("dyn-traffic")
          .name("DynECT Managed DNS")
          .apiMetadata(new DynTrafficApiMetadata())
          .homepage(URI.create("http://dyn.com/dns/dynect-managed-dns/"))

@@ -33,6 +33,8 @@ import org.jclouds.rest.annotations.Fallback;
 import org.jclouds.rest.annotations.Headers;
 import org.jclouds.rest.annotations.RequestFilters;
 
+import com.dyn.client.common.AlwaysAddContentType;
+import com.dyn.client.common.AlwaysAddUserAgent;
 import com.dyn.client.v3.traffic.domain.Job;
 import com.dyn.client.v3.traffic.features.GeoRegionGroupApi;
 import com.dyn.client.v3.traffic.features.GeoServiceApi;
@@ -40,8 +42,6 @@ import com.dyn.client.v3.traffic.features.HttpRedirectApi;
 import com.dyn.client.v3.traffic.features.RecordApi;
 import com.dyn.client.v3.traffic.features.SessionApi;
 import com.dyn.client.v3.traffic.features.ZoneApi;
-import com.dyn.client.v3.traffic.filters.AlwaysAddContentType;
-import com.dyn.client.v3.traffic.filters.AlwaysAddUserAgent;
 import com.dyn.client.v3.traffic.filters.SessionManager;
 
 /**
@@ -53,8 +53,6 @@ import com.dyn.client.v3.traffic.filters.SessionManager;
  * @author Sunny Gleason
  */
 public interface DynTrafficApi extends Closeable {
-	public static final String DYN_TRAFFIC_USER_AGENT = "dyn-java v1.7.2";
-
    /**
     * returns the current status of a job.
     * 

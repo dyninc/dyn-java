@@ -14,35 +14,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.dyn.client.v3.traffic;
+package com.dyn.client.v3.messaging;
 
 import java.net.URI;
 import java.util.Properties;
 
+import org.jclouds.apis.ApiMetadata;
 import org.jclouds.rest.internal.BaseHttpApiMetadata;
 
-import com.dyn.client.v3.traffic.config.DynTrafficHttpApiModule;
-import com.dyn.client.v3.traffic.config.DynTrafficParserModule;
+import com.dyn.client.v3.messaging.config.DynMessagingHttpApiModule;
 import com.google.common.collect.ImmutableSet;
 import com.google.inject.Module;
 
 /**
- * Implementation of {@link ApiMetadata} for DynECT 1.0 API
- * 
- * @author Adrian Cole
+ * Implementation of {@link ApiMetadata} for Dyn Messaging API
  */
-public class DynTrafficApiMetadata extends BaseHttpApiMetadata<DynTrafficApi> {
+public class DynMessagingApiMetadata extends BaseHttpApiMetadata<DynMessagingApi> {
    
    @Override
    public Builder toBuilder() {
       return new Builder().fromApiMetadata(this);
    }
 
-   public DynTrafficApiMetadata() {
+   public DynMessagingApiMetadata() {
       this(new Builder());
    }
 
-   protected DynTrafficApiMetadata(Builder builder) {
+   protected DynMessagingApiMetadata(Builder builder) {
       super(builder);
    }
 
@@ -51,25 +49,24 @@ public class DynTrafficApiMetadata extends BaseHttpApiMetadata<DynTrafficApi> {
       return properties;
    }
 
-   public static class Builder extends BaseHttpApiMetadata.Builder<DynTrafficApi, Builder> {
+   public static class Builder extends BaseHttpApiMetadata.Builder<DynMessagingApi, Builder> {
 
       protected Builder() {
-          id("dyn-traffic")
-         .name("Dyn Traffic API")
+          id("dyn-messaging")
+         .name("Dyn Messaging API")
          .identityName("${customer}:${userName}")
          .credentialName("${password}")
-         .documentation(URI.create("https://manage.dynect.net/help/docs/api2/rest/"))
-         .version("3.3.8")
-         .defaultEndpoint("https://api2.dynect.net/REST")
-         .defaultProperties(DynTrafficApiMetadata.defaultProperties())
+         .documentation(URI.create("https://help.dynect.net/api/"))
+         .version("1.0")
+         .defaultEndpoint("https://emailapi.dynect.net/rest/json")
+         .defaultProperties(DynMessagingApiMetadata.defaultProperties())
          .defaultModules(ImmutableSet.<Class<? extends Module>>builder()
-                                     .add(DynTrafficParserModule.class)
-                                     .add(DynTrafficHttpApiModule.class).build());
+                                     .add(DynMessagingHttpApiModule.class).build());
       }
       
       @Override
-      public DynTrafficApiMetadata build() {
-         return new DynTrafficApiMetadata(this);
+      public DynMessagingApiMetadata build() {
+         return new DynMessagingApiMetadata(this);
       }
 
       @Override

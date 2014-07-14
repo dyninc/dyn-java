@@ -30,11 +30,11 @@ import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.SelectJson;
 import org.jclouds.rest.binders.BindToJsonPayload;
 
+import com.dyn.client.common.AlwaysAddContentType;
+import com.dyn.client.common.AlwaysAddUserAgent;
 import com.dyn.client.v3.traffic.DynTrafficFallbacks.FalseOn400;
 import com.dyn.client.v3.traffic.domain.Session;
 import com.dyn.client.v3.traffic.domain.SessionCredentials;
-import com.dyn.client.v3.traffic.filters.AlwaysAddContentType;
-import com.dyn.client.v3.traffic.filters.AlwaysAddUserAgent;
 
 /**
  * @see <a
