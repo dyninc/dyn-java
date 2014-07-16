@@ -26,11 +26,22 @@
   </parent>
   <groupId>com.dyn</groupId>
   <artifactId>dyn-client</artifactId>
-  <version>0.99.0</version>
+  <version>0.99.0-SNAPSHOT</version>
   <name>Dyn SDK for Java</name>
   <description>Dyn SDK based on jclouds components</description>
   <packaging>jar</packaging>
-
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:git:git://github.com/dyninc/dyn-java.git</connection>
+    <developerConnection>scm:git:git@github.com:dyninc/dyn-java.git</developerConnection>
+    <url>https://github.com/dyninc/dyn-java</url>
+    <tag>HEAD</tag>
+  </scm>
   <properties>
     <test.dynect.endpoint>https://api2.dynect.net/REST</test.dynect.endpoint>
     <test.dynect.api-version>3.3.8</test.dynect.api-version>
