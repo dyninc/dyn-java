@@ -26,7 +26,7 @@
   </parent>
   <groupId>com.dyn</groupId>
   <artifactId>dyn-client</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <name>Dyn SDK for Java</name>
   <description>Dyn SDK based on jclouds components</description>
   <packaging>jar</packaging>
@@ -41,7 +41,7 @@
     <connection>scm:git:git://github.com/dyninc/dyn-java.git</connection>
     <developerConnection>scm:git:git@github.com:dyninc/dyn-java.git</developerConnection>
     <url>https://github.com/dyninc/dyn-java</url>
-    <tag>dyn-client-1.0.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
