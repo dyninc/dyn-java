@@ -16,7 +16,7 @@
  */
 package com.dyn.client.v3.traffic.filters;
 
-import static com.dyn.client.v3.traffic.DynTrafficApi.DYN_TRAFFIC_USER_AGENT;
+import static com.dyn.client.common.DynClientVersion.VERSION;
 import static com.google.common.net.HttpHeaders.USER_AGENT;
 
 import org.jclouds.http.HttpException;
@@ -33,7 +33,7 @@ public final class AlwaysAddUserAgent implements HttpRequestFilter {
    @Override
    public HttpRequest filter(HttpRequest request) throws HttpException {
       if (request.getFirstHeaderOrNull(USER_AGENT) == null)
-         return request.toBuilder().replaceHeader(USER_AGENT, DYN_TRAFFIC_USER_AGENT).build();
+         return request.toBuilder().replaceHeader(USER_AGENT, VERSION).build();
       return request;
    }
 }

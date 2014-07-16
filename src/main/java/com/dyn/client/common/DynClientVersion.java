@@ -20,5 +20,5 @@ package com.dyn.client.common;
  * SDK Client Version to report in User-Agent
  */
 public interface DynClientVersion {
-	String VERSION = "dyn-java v1.7.2";
+	String VERSION = "dyn-java v0.99.0";
 }
