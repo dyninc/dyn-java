@@ -36,12 +36,22 @@
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
+
   <scm>
     <connection>scm:git:git://github.com/dyninc/dyn-java.git</connection>
     <developerConnection>scm:git:git@github.com:dyninc/dyn-java.git</developerConnection>
     <url>https://github.com/dyninc/dyn-java</url>
     <tag>HEAD</tag>
   </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>sonatype-nexus-staging</id>
+      <name>Nexus Release Repository</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
   <properties>
     <test.dynect.endpoint>https://api2.dynect.net/REST</test.dynect.endpoint>
     <test.dynect.api-version>3.3.8</test.dynect.api-version>
