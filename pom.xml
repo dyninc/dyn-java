@@ -128,8 +128,4 @@
     </profile>
   </profiles>
 
-
-  <scm>
-    <tag>dyn-client-0.99.0</tag>
-  </scm>
 </project>
