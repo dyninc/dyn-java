@@ -1,6 +1,10 @@
+Dyn SDK Version 1.0.0
+
+* Adds support for Messaging services!
+* First official release of Dyn Java SDK to Maven Central
 
 
-CHANGES in 1.7.2 (relative to JClouds 1.7.2-SNAPSHOT)
+CHANGES in OLD 1.7.2 (relative to JClouds 1.7.2-SNAPSHOT)
 
 * Initial Import from JClouds 1.7.x @ 283937fad099e0ed528ed90485373e99813ccfcf
 * This is the basis for the Dyn SDK for Java
