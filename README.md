@@ -107,3 +107,8 @@ Working with the Message API is as easy as:
 # Known Issues
 
 * None yet
+
+# License
+
+* Apache 2.0
+
