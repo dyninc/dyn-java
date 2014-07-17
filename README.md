@@ -1,7 +1,15 @@
-# Dyn SDK for Java - Developer Preview
+# Dyn SDK for Java
 
-NOTE: This is a developer preview - we welcome your feedback!
+NOTE: This SDK is brand new - we welcome your feedback!
 Please reach out via pull request or GitHub issue.
+
+Using the library is super-easy with Maven:
+
+    <dependency>
+        <groupId>com.dyn</groupId>
+        <artifactId>dyn-client</artifactId>
+        <version>1.0.0</version>
+    </dependency>
 
 Making DNS Updates as easy as:
 
