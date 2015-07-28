@@ -54,15 +54,14 @@ public interface SendersApi {
 	@Path("/senders/details")
 	@SelectJson("data")
 	@Consumes(APPLICATION_JSON)
-	Map<String, Object> getDetails(
-			@FormParam("emailaddress") String emailAddress);
+	Map<String, Object> getDetails(@QueryParam("emailaddress") String emailAddress);
 
 	@Named("GetSenderStatus")
 	@GET
 	@Path("/senders/status")
 	@SelectJson("data")
 	@Consumes(APPLICATION_JSON)
-	Map<String, Object> getStatus(@FormParam("emailaddress") String emailAddress);
+	Map<String, Object> getStatus(@QueryParam("emailaddress") String emailAddress);
 
 	@Named("CreateOrUpdateSender")
 	@POST
@@ -70,7 +69,7 @@ public interface SendersApi {
 	@SelectJson("data")
 	@Produces(APPLICATION_FORM_URLENCODED)
 	@Consumes(APPLICATION_JSON)
-	List<Map<String, Object>> createOrUpdate(
+    Map<String, Object> createOrUpdate(
 			@FormParam("emailaddress") String emailAddress,
 			@FormParam("seeding") String seeding);
 
