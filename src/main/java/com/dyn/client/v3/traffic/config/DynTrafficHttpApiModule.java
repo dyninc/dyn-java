@@ -16,27 +16,15 @@
  */
 package com.dyn.client.v3.traffic.config;
 
-import static org.jclouds.http.HttpUtils.closeClientButKeepContentStream;
-import static org.jclouds.rest.config.BinderUtils.bindHttpApi;
-
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.Proxy;
-import java.net.URI;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLContext;
-
-import org.jclouds.Constants;
+import com.dyn.client.v3.traffic.DynTrafficApi;
+import com.dyn.client.v3.traffic.features.SessionApi;
+import com.dyn.client.v3.traffic.filters.SessionManager;
+import com.dyn.client.v3.traffic.handlers.DynTrafficErrorHandler;
+import com.dyn.client.v3.traffic.handlers.GetJobRedirectionRetryHandler;
+import com.google.common.base.Function;
+import com.google.common.base.Supplier;
 import org.jclouds.concurrent.SingleThreaded;
-import org.jclouds.http.HttpErrorHandler;
-import org.jclouds.http.HttpResponse;
-import org.jclouds.http.HttpRetryHandler;
-import org.jclouds.http.HttpUtils;
-import org.jclouds.http.IOExceptionRetryHandler;
+import org.jclouds.http.*;
 import org.jclouds.http.annotation.ClientError;
 import org.jclouds.http.annotation.Redirection;
 import org.jclouds.http.annotation.ServerError;
@@ -49,14 +37,19 @@ import org.jclouds.io.ContentMetadataCodec;
 import org.jclouds.rest.ConfiguresHttpApi;
 import org.jclouds.rest.config.HttpApiModule;
 
-import com.dyn.client.v3.traffic.DynTrafficApi;
-import com.dyn.client.v3.traffic.features.SessionApi;
-import com.dyn.client.v3.traffic.filters.SessionManager;
-import com.dyn.client.v3.traffic.handlers.DynTrafficErrorHandler;
-import com.dyn.client.v3.traffic.handlers.GetJobRedirectionRetryHandler;
-import com.google.common.base.Function;
-import com.google.common.base.Supplier;
-import com.google.common.util.concurrent.ListeningExecutorService;
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.Proxy;
+import java.net.URI;
+import java.nio.charset.Charset;
+
+import static org.jclouds.http.HttpUtils.closeClientButKeepContentStream;
+import static org.jclouds.rest.config.BinderUtils.bindHttpApi;
 
 /**
  * Configures the DynECT connection.
@@ -103,12 +96,11 @@ public class DynTrafficHttpApiModule extends HttpApiModule<DynTrafficApi> {
 
       @Inject
       private SillyRabbit200sAreForSuccess(HttpUtils utils, ContentMetadataCodec contentMetadataCodec,
-            @Named(Constants.PROPERTY_IO_WORKER_THREADS) ListeningExecutorService ioExecutor,
             DelegatingRetryHandler retryHandler, IOExceptionRetryHandler ioRetryHandler,
             DelegatingErrorHandler errorHandler, HttpWire wire, @Named("untrusted") HostnameVerifier verifier,
             @Named("untrusted") Supplier<SSLContext> untrustedSSLContextProvider, Function<URI, Proxy> proxyForURI)
             throws SecurityException, NoSuchFieldException {
-         super(utils, contentMetadataCodec, ioExecutor, retryHandler, ioRetryHandler, errorHandler, wire, verifier,
+         super(utils, contentMetadataCodec, retryHandler, ioRetryHandler, errorHandler, wire, verifier,
                untrustedSSLContextProvider, proxyForURI);
       }
 
@@ -120,7 +112,7 @@ public class DynTrafficHttpApiModule extends HttpApiModule<DynTrafficApi> {
          HttpResponse response = super.invoke(connection);
          if (response.getStatusCode() == 200) {
             byte[] data = closeClientButKeepContentStream(response);
-            String message = data != null ? new String(data, "UTF-8") : null;
+            String message = data != null ? new String(data, Charset.forName("UTF-8")) : null;
             if (message != null && !message.startsWith("{\"status\": \"success\"")) {
                response = response.toBuilder().statusCode(400).build();
             }

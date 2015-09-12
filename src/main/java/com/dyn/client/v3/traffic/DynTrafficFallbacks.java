@@ -16,14 +16,11 @@
  */
 package com.dyn.client.v3.traffic;
 
-import static com.google.common.base.Predicates.equalTo;
-import static com.google.common.base.Throwables.propagate;
-import static com.google.common.util.concurrent.Futures.immediateFuture;
-import static org.jclouds.http.HttpUtils.returnValueOnCodeOrNull;
-
 import org.jclouds.Fallback;
 
-import com.google.common.util.concurrent.ListenableFuture;
+import static com.google.common.base.Predicates.equalTo;
+import static com.google.common.base.Throwables.propagate;
+import static org.jclouds.http.HttpUtils.returnValueOnCodeOrNull;
 
 /**
  * 
@@ -34,11 +31,6 @@ public final class DynTrafficFallbacks {
    }
 
    public static class FalseOn400 implements Fallback<Boolean> {
-      @Override
-      public ListenableFuture<Boolean> create(Throwable t) throws Exception {
-         return immediateFuture(createOrPropagate(t));
-      }
-
       @Override
       public Boolean createOrPropagate(Throwable t) throws Exception {
          if (returnValueOnCodeOrNull(t, false, equalTo(400)) != null)
